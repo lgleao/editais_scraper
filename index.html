@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Políticos</title>
+    <style>
+        /* 1. Reset básico e Fonte moderna */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* 2. Fundo da página e centralização */
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* 3. Estilizando o cabeçalho */
+        h1 {
+            color: #1a365d;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* 4. Caixa de pesquisa bonitona */
+        #input {
+            width: 100%;
+            max-width: 400px;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid #cbd5e1;
+            border-radius: 30px;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        #input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.3);
+        }
+
+        /* 5. Cartão (Card) onde os dados e a foto vão aparecer */
+        .cartao-resultado {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            width: 100%;
+            max-width: 350px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 6. Estilo dos textos de Partido e UF */
+        #partido, #uf {
+            font-size: 18px;
+            font-weight: bold;
+            color: #475569;
+            margin-top: 10px;
+        }
+
+        /* 7. Estilo da Imagem (com uma borda sutil) */
+        #foto {
+            width: 150px;
+            height: 200px;
+            object-fit: cover; /* Garante que a foto não fique esticada */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            display: none; /* Começa escondida até o JS ativar */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>API politicos bla bla bla</h1>
+    
+    <!-- Adicionado um "placeholder" para orientar o usuário -->
+    <input type="text" id="input" placeholder="Digite o nome e aperte Enter..." autocomplete="off">
+
+    <!-- Container estilo "Cartão" para agrupar o resultado -->
+    <div class="cartao-resultado">
+        <img id="foto" alt=""> 
+        <div id="nome"></div>
+        <div id="partido">Faça uma busca para começar</div>
+        <div id="uf"></div>
+    </div>
+
+    <!-- O link para o seu arquivo JS continua igual -->
+    <script src="api.js"></script>
+</body>
+</html>
