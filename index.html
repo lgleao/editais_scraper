@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastreia Editais</title>
+    <style>
+        :root { --primaria: #2563eb; --fundo: #f8fafc; --texto: #1e293b; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--fundo); color: var(--texto); padding: 20px; }
+        
+        .container { max-width: 1000px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 30px; }
+        
+        .controles { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; }
+        
+        .barra-pesquisa { display: flex; gap: 10px; }
+        input[type="text"], select { padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 16px; }
+        input[type="text"] { flex-grow: 1; }
+        select { width: 200px; background-color: white; cursor: pointer; }
+        
+        .filtros { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+        .btn-filtro { padding: 8px 16px; border: none; border-radius: 20px; background: #e2e8f0; cursor: pointer; transition: 0.2s; font-weight: 500; }
+        .btn-filtro:hover, .btn-filtro.ativo { background: var(--primaria); color: white; }
+        
+        .grid-editais { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); display: flex; flex-direction: column; }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+        .card h3 { font-size: 1.1em; color: var(--primaria); flex-grow: 1; padding-right: 10px; }
+        .badge-uf { background: #1e293b; color: white; padding: 4px 8px; border-radius: 6px; font-size: 0.8em; font-weight: bold; }
+        
+        .card p { font-size: 0.9em; color: #475569; margin-bottom: 15px; flex-grow: 1; }
+        .metadados { display: flex; justify-content: space-between; font-size: 0.85em; font-weight: bold; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #e2e8f0; }
+        .tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 15px; }
+        .tag { background: #dbeafe; color: #1e40af; padding: 4px 10px; border-radius: 12px; font-size: 0.75em; font-weight: 600; text-transform: uppercase; }
+        
+        .btn-link { background: var(--primaria); color: white; text-align: center; padding: 10px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: 0.2s; }
+        .btn-link:hover { background: #1d4ed8; }
+
+        @media (max-width: 600px) {
+            .barra-pesquisa { flex-direction: column; }
+            select { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rastreia Editais</h1>
+        </header>
+
+        <div class="controles">
+            <div class="barra-pesquisa">
+                <input type="text" id="busca" placeholder="Busque por cargo, cidade ou banca...">
+                <select id="filtro-estado">
+                    <option value="todos">Todos os Estados</option>
+                    <!-- Options criadas JS -->
+                </select>
+            </div>
+            <div class="filtros" id="botoes-filtro">
+                <!-- Botoes gerados JS -->
+            </div>
+        </div>
+
+        <div class="grid-editais" id="lista-concursos">
+            <p>Carregando dados...</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
